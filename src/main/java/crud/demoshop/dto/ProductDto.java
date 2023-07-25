@@ -3,6 +3,7 @@ package crud.demoshop.dto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -16,11 +17,18 @@ public class ProductDto {
     private String category;
     private List<OrderDto> ordersDto;
 
-    public ProductDto(Long id, String name, String description, double price, String category) {
-        this.id = id;
+    public ProductDto(String name, String description, double price, String category) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.category = category;
     }
+
+//    public List<OrderDto> getOrdersDto() {
+//        if (ordersDto == null) {
+//            ordersDto = new ArrayList<>();
+//        }
+//
+//        return ordersDto;
+//    }
 }

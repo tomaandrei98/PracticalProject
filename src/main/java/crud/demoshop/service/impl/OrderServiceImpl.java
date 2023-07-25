@@ -3,6 +3,7 @@ package crud.demoshop.service.impl;
 import crud.demoshop.dto.OrderDto;
 import crud.demoshop.exception.OrderNotFoundException;
 import crud.demoshop.model.Order;
+import crud.demoshop.model.Product;
 import crud.demoshop.repository.OrderRepository;
 import crud.demoshop.service.OrderService;
 import crud.demoshop.utils.EntityDtoConverter;
@@ -36,7 +37,13 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderDto saveOrder(OrderDto orderDto) {
+//        List<Product> products = orderDto.getProductsDto()
+//                .stream()
+//                .map(EntityDtoConverter::toEntity)
+//                .toList();
         Order order = EntityDtoConverter.toEntity(orderDto);
+//        order.setProducts(products);
+
         Order savedOrder = orderRepository.save(order);
         return EntityDtoConverter.toDto(savedOrder);
     }

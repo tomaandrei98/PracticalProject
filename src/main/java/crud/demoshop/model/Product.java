@@ -1,5 +1,6 @@
 package crud.demoshop.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,5 +34,6 @@ public class Product {
     private String category;
 
     @ManyToMany(mappedBy = "products")
+    @JsonIgnore
     private List<Order> orders;
 }

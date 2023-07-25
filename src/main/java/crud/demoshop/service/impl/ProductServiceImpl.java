@@ -2,8 +2,10 @@ package crud.demoshop.service.impl;
 
 import crud.demoshop.dto.ProductDto;
 import crud.demoshop.exception.ProductNotFoundException;
+import crud.demoshop.model.Order;
 import crud.demoshop.model.Product;
 import crud.demoshop.repository.ProductRepository;
+import crud.demoshop.service.OrderService;
 import crud.demoshop.service.ProductService;
 import crud.demoshop.utils.EntityDtoConverter;
 import lombok.RequiredArgsConstructor;
@@ -35,7 +37,13 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDto saveProduct(ProductDto productDto) {
+//        List<Order> orders = productDto.getOrdersDto()
+//                .stream()
+//                .map(EntityDtoConverter::toEntity)
+//                .toList();
         Product product = EntityDtoConverter.toEntity(productDto);
+//        product.setOrders(orders);
+
         Product savedProduct = productRepository.save(product);
         return EntityDtoConverter.toDto(savedProduct);
     }

@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -19,8 +20,7 @@ public class OrderDto {
     private CustomerDto customerDto;
     private List<ProductDto> productsDto;
 
-    public OrderDto(Long id, String name, int orderNo, int quantity, String status, LocalDate createdDate, CustomerDto customerDto) {
-        this.id = id;
+    public OrderDto(String name, int orderNo, int quantity, String status, LocalDate createdDate, CustomerDto customerDto) {
         this.name = name;
         this.orderNo = orderNo;
         this.quantity = quantity;
@@ -28,4 +28,12 @@ public class OrderDto {
         this.createdDate = createdDate;
         this.customerDto = customerDto;
     }
+
+//    public List<ProductDto> getProductsDto() {
+//        if (productsDto == null) {
+//            productsDto = new ArrayList<>();
+//        }
+//
+//        return productsDto;
+//    }
 }

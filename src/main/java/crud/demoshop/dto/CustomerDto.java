@@ -16,8 +16,7 @@ public class CustomerDto {
     private String phone;
     private List<OrderDto> ordersDto;
 
-    public CustomerDto(Long id, String name, String address, String email, String phone) {
-        this.id = id;
+    public CustomerDto(String name, String address, String email, String phone) {
         this.name = name;
         this.address = address;
         this.email = email;
